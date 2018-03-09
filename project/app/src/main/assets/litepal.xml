@@ -3,9 +3,9 @@
     <version value="1" />
 
     <list>
-        <mapping class="com.leleweather.android.db.Province" />
-        <mapping class="com.leleweather.android.db.City" />
-        <mapping class="com.leleweather.android.db.County" />
+        <mapping class="com.jointsky.leleweather.db.Province" />
+        <mapping class="com.jointsky.leleweather.db.City" />
+        <mapping class="com.jointsky.leleweather.db.County" />
     </list>
 </litepal>
 
