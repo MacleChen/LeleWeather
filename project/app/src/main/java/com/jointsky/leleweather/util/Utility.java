@@ -2,9 +2,11 @@ package com.jointsky.leleweather.util;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.jointsky.leleweather.db.City;
 import com.jointsky.leleweather.db.County;
 import com.jointsky.leleweather.db.Province;
+import com.jointsky.leleweather.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,6 +95,25 @@ public class Utility {
         }
 
         return false;
+    }
+
+
+    /**
+     * 将返回的json数据解析成Weather实体类
+     * @param response
+     * @return
+     */
+    public static Weather handleWeatherResonse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }
